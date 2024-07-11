@@ -9,17 +9,15 @@ import sknetwork
 from sknetwork.gnn.gnn_classifier import GNNClassifier
 from sknetwork.classification import get_accuracy_score
 
-df = pd.read_pickle('soja_sentences_nodes_ready.pkl').reset_index()
+df = pd.read_pickle('04_Soybean_Embeddings_Headline_TimeSeries_PT-BR.pkl').reset_index()
 # Dataset: https://www.sciencedirect.com/science/article/pii/S2352340924005122?via%3Dihub
 # Download: https://data.mendeley.com/datasets/f8fdmpp6yh/2
-
-df.head()
+#df.head()
 
 nbb     = [[8, 2], [16,2]]
 rtt     = [0.0001, 0.001, 0.01]
 tpp     = ['Sage', 'Conv']
 ptt     = [50, 100]
-
 
 """
 --------------------------------------------------------------------------
@@ -151,8 +149,6 @@ def bruteForce(Grp, rep_mod):
 
     return lrp, ltp, lnb, lrt, lpt, lva
 
-
-
 """
 --------------------------------------------------------------------------
 Paper: Section 4.4 Results
@@ -244,7 +240,6 @@ def graphs1():
     lval.extend(va)
 
     saveGraph('01_tx_knn', lrpr, ltpp, lnbb, lrtt, lptt, lval)
-
 
 #Graph: PIP time series and Text
 #Paper: Table 3 - PIP
